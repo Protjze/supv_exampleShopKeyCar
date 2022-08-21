@@ -42,6 +42,19 @@ exports.supv_carkey:GiveCarKey(source, plate, model)
 exports.supv_carkey:DeleteCarKey(source, plate, count)
 ```
 
+don't forget in ox_inventory/data/items add this : 
+
+```lua
+	['car_keys'] = {
+		label = 'Clé de véhicule',
+		weight = 100,
+		stack = false,
+		client = {
+			event = 'use:key'
+		}
+	},
+```
+
 if you use sublime_administration goto client/menu's/OnlinePlayers/[b]PlayerDetails.lua
 
 add this in function _Admin.Panel:PlayerDetailsVehicle2(rank, plate, stored, data, label, name, cat, price) ~l.632 under RageUI.Line()
