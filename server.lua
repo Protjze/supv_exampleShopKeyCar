@@ -25,13 +25,13 @@ end)
 
 RegisterNetEvent("buykey:shop", function(plate, model)
     local _source = source
-    local player = ESX.GetPlayerFromId(_source)
-    local playerPed = GetPlayerPed(_source)
-    local playerCoords = GetEntityCoords(playerPed)
+    local xPlayer = ESX.GetPlayerFromId(_source)
+    local player = supv.player.getFromId(_source)
 
-    if #(playerCoords - cfg.buykey) > 3.0 then return end
-    if player.getMoney() < cfg.price then return player.showNotification(("Tu as pas de sousou\nIl te manque : %s$"):format(cfg.price-player.getMoney())) end
-    player.removeMoney(cfg.price)
+    if player:distance(cfg.buykey) > 3.0 then return end
+    if xPlayer.getMoney() < cfg.price then return xPlayer.showNotification(("Tu as pas de sousou\nIl te manque : %s$"):format(cfg.price-xPlayer.getMoney())) end
+    xPlayer.removeMoney(cfg.price)
     carkey:GiveCarKey(_source, plate, model)
 end)
 
+supv.version.check("https://raw.githubusercontent.com/SUP2Ak/supv_exampleShopKeyCar/main/version.json", nil, nil, 'json', "https://github.com/SUP2Ak/supv_exampleShopKeyCar", 'fr')

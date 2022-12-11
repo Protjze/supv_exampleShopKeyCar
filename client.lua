@@ -104,7 +104,7 @@ CreateThread(function()
         sleep = 500
         player:distance(Config.buykey)
         if player.dist < 10.0 then sleep = 0 
-            if not next(menu) and not supv.oncache.currentvehicle then supv.marker.simple(true, player.dist < 3.0, Config.buykey) end
+            if not next(menu) and not supv.oncache.currentvehicle then supv.marker.advanced(true, player.dist < 3.0, Config.buykey) end
             if player.dist < 3.0 and not supv.oncache.currentvehicle then
                 if IsControlJustPressed(0, 38) and not next(menu) then
                     OpenMenu.shop('shop')
